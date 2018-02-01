@@ -1,3 +1,4 @@
+
 var starterButtons = ["planes", "trains", "automobiles"];
 function onPage() {
   for (i = 0; i < starterButtons.length; i++) {
@@ -22,20 +23,17 @@ $(".buttonClick").on("click", function() {
     console.log(gif);
     var items = gif.data;
     for (i = 0; i < items.length; i++) {
+      var p = $('<p>').text("rating: "+items[i].rating);
       var image = $("<img>");
       image.addClass("imgClick");
       image.attr("src", items[i].images.fixed_height_still.url);
-      $(".gifs").prepend(image);
+      $(".gifs").prepend(p, image);
     }
   });
 });
 
 $(".imgClick").on("click", function() {
-  // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
   var state = $(this).attr("data-state");
-  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-  // Then, set the image's data-state to animate
-  // Else set src to the data-still value
   if (state === "still") {
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
