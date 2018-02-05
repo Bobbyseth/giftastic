@@ -22,7 +22,7 @@ onPage();
 $(document).on("click", ".buttonClick", function() {
   event.preventDefault();
   var topic = $(this).attr("data-button");
-  var URL = "http://api.giphy.com/v1/gifs/search?q=" + topic +"&api_key=6FR6Mj7eSFpkzXrDqTYKbqyroOFJd2mw&limit=5";
+  var URL = "https://api.giphy.com/v1/gifs/search?q=" + topic +"&api_key=6FR6Mj7eSFpkzXrDqTYKbqyroOFJd2mw&limit=5";
   $.ajax({
     url: URL,
     method: "GET"
